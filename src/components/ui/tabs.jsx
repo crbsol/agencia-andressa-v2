@@ -1,37 +1,40 @@
 'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export function Tabs({ defaultValue, children }) {
-  const [value, setValue] = useState(defaultValue);
-  const childrenArray = Array.isArray(children) ? children : [children];
+export default function SocialMediaAgency() {
+  const [clients, setClients] = useState([
+    {
+      name: "Cliente Exemplo",
+      posts: [
+        { title: "Post 1", status: "em andamento", date: "2024-05-01" },
+        { title: "Post 2", status: "completo", date: "2024-05-05" }
+      ],
+      paymentDay: "10",
+      paymentMethod: "PIX"
+    }
+  ]);
 
-  return childrenArray.map(child =>
-    typeof child.type === 'function' ? child.type.name === 'TabsList'
-      ? <div key="tabs-list">{child.props.children.map(btn => 
-            <button
-              key={btn.props.value}
-              className="mr-2 p-2 border-b-2"
-              onClick={() => setValue(btn.props.value)}
-            >
-              {btn.props.children}
-            </button>
-          )}
-        </div>
-      : child.type.name === 'TabsContent' && child.props.value === value
-        ? <div key={child.props.value}>{child.props.children}</div>
-        : null
-    : null
+  return (
+    <div className="p-4">
+      <h1 className="text-xl font-bold mb-4">Agência de Mídias</h1>
+      <ul>
+        {clients.map((client, index) => (
+          <li key={index} className="mb-2 border-b pb-2">
+            <strong>{client.name}</strong>
+            <div className="text-sm">
+              Dia de Pagamento: {client.paymentDay} <br />
+              Método: {client.paymentMethod}
+            </div>
+            <ul className="ml-4 mt-2 list-disc">
+              {client.posts.map((post, i) => (
+                <li key={i}>
+                  📌 {post.title} - {post.status} ({post.date})
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
-
-export function TabsList({ children }) {
-  return <>{children}</>;
-}
-
-export function TabsTrigger({ value, children }) {
-  return <>{children}</>;
-}
-
-export function TabsContent({ value, children }) {
-  return <>{children}</>;
 }
