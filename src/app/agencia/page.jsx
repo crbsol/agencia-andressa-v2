@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs';
 import dynamic from 'next/dynamic';
 
 const CalendarWithNoSSR = dynamic(() => import('./CalendarComponent'), { ssr: false });
@@ -8,7 +8,6 @@ const KanbanWithNoSSR = dynamic(() => import('./KanbanComponent'), { ssr: false 
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
     setMounted(true);
   }, []);
