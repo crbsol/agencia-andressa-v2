@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '../../components/ui/card';
 import { Kanban } from "lucide-react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 

@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '../../components/ui/card';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
