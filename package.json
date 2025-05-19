@@ -1,0 +1,26 @@
+{
+  "name": "agencia-andressa",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/react": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
+    "lucide-react": "^0.263.0",
+    "next": "15.3.2",
+    "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.4.1"
+  }
+}
