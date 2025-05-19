@@ -15,10 +15,9 @@ export default function Page() {
   if (!mounted) return null;
   const [clients, setClients] = useState([]);
   const [statuses, setStatuses] = useState(["urgente", "em andamento", "completo"]);
-  const allPosts = clients.flatMap(client =>
-    client.posts.map(post => ({ ...post, client: client.name }))
-  );
-
+ const allPosts = clients.flatMap(client =>
+  (client.posts || []).map(post => ({ ...post, client: client.name }))
+);
   return (
     <div className="p-6 space-y-6">
       <Tabs defaultValue="semanal">
