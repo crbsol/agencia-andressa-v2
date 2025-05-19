@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs';
 import dynamic from 'next/dynamic';
+import SocialMediaAgency from './SocialMediaAgency';
 
 const CalendarWithNoSSR = dynamic(() => import('./CalendarComponent'), { ssr: false });
 const KanbanWithNoSSR = dynamic(() => import('./KanbanComponent'), { ssr: false });
@@ -24,6 +25,9 @@ export default function Page() {
 
   return (
     <div className="p-6 space-y-6">
+      {/* Define os dados dos clientes */}
+      <SocialMediaAgency setClients={setClients} />
+
       <Tabs defaultValue="semanal">
         <TabsList>
           <TabsTrigger value="semanal">Semanal</TabsTrigger>
