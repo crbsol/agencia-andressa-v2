@@ -15,7 +15,7 @@ export default function Page() {
   if (!mounted) return null;
   const [clients, setClients] = useState([]);
   const [statuses, setStatuses] = useState(["urgente", "em andamento", "completo"]);
- const allPosts = clients.flatMap(client =>
+const allPosts = clients.flatMap(client =>
   (client.posts || []).map(post => ({ ...post, client: client.name }))
 );
   return (
