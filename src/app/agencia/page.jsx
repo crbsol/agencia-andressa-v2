@@ -1,14 +1,26 @@
 'use client';
-import { useState, useEffect } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import SocialMediaAgency from './SocialMediaAgency';
 
+// ✅ Corrigir importações dos componentes de abas
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent
+} from '../../components/ui/tabs';
+
+// ✅ Corrigir caminho para o SocialMediaAgency
+import SocialMediaAgency from '../../components/SocialMediaAgency';
+
+// ✅ Importações dinâmicas (sem SSR) dos componentes de calendário e kanban
 const CalendarWithNoSSR = dynamic(() => import('./CalendarComponent'), { ssr: false });
 const KanbanWithNoSSR = dynamic(() => import('./KanbanComponent'), { ssr: false });
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
+  const [clients, setClients] = useState([]);
+  const [statuses, setStatuses] = useState(['urgente', 'em andamento', 'completo']);
 
   useEffect(() => {
     setMounted(true);
@@ -16,16 +28,13 @@ export default function Page() {
 
   if (!mounted) return null;
 
-  const [clients, setClients] = useState([]);
-  const [statuses, setStatuses] = useState(["urgente", "em andamento", "completo"]);
-
   const allPosts = clients.flatMap(client =>
     (client.posts || []).map(post => ({ ...post, client: client.name }))
   );
 
   return (
     <div className="p-6 space-y-6">
-      {/* Define os dados dos clientes */}
+      {/* Define os dados simulados dos clientes */}
       <SocialMediaAgency setClients={setClients} />
 
       <Tabs defaultValue="semanal">

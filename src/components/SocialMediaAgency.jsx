@@ -7,8 +7,8 @@ export default function SocialMediaAgency({ setClients }) {
       {
         name: "Cliente Exemplo",
         posts: [
-          { title: "Post 1", status: "em andamento", date: "2024-05-20" },
-          { title: "Post 2", status: "completo", date: "2024-05-21" }
+          { title: "Post 1", status: "em andamento", date: "2024-05-21" },
+          { title: "Post 2", status: "completo", date: "2024-05-23" }
         ],
         paymentDay: "10",
         paymentMethod: "PIX"
@@ -16,5 +16,5 @@ export default function SocialMediaAgency({ setClients }) {
     ]);
   }, [setClients]);
 
-  return null; // Não precisa renderizar nada na tela
+  return null;
 }
